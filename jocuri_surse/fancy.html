@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jSlots Slot Machine - Matthew Lein</title>
+
+
+<link href='http://fonts.googleapis.com/css?family=Gravitas+One&text=1234567' rel='stylesheet' type='text/css'>
+<link href='../css/777.css' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+<body>
+        
+            
+    <div class="fancy">
+        <ul class="slot">
+            <!-- In reverse order so the 7s show on load -->
+            <li><span>7</span></li>
+            <li><span>6</span></li>
+            <li><span>5</span></li>
+            <li><span>4</span></li>
+            <li><span>3</span></li>
+            <li><span>2</span></li>
+            <li><span>1</span></li>
+        </ul>
+        <input type="button" id="playFancy" value="Play">
+    </div>
+
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="../js/jocuri/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jocuri/jquery.jSlots.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+        
+        // fancy example
+        $('.fancy .slot').jSlots({
+            number : 3,
+            winnerNumber : 1,
+            spinner : '#playFancy',
+            easing : 'easeOutSine',
+            time : 7000,
+            loops : 5,
+            onStart : function() {
+                $('.slot').removeClass('winner');
+            },
+            onWin : function(winCount, winners) {
+                // only fires if you win
+                
+                $.each(winners, function() {
+                    this.addClass('winner');
+                });
+
+                // react to the # of winning slots                 
+                if ( winCount === 1 ) {
+                    alert('You got ' + winCount + ' 7!!!');
+                } else if ( winCount > 1 ) {
+                    alert('You got ' + winCount + ' 7’s!!!');
+                }
+                
+            }
+        });
+        
+        
+    </script>
+    
+</body>
+</html>

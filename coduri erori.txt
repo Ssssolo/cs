@@ -1,0 +1,5 @@
+#6V971X35 - index.php (formularul de logare) => Exista conturi multiple in baza de date cu acelasi username
+#4N388V40 - tichet.php			     => in coloana `stare` din tabelul `tichete` s-a introdus o valoare gresita
+#1L665Y48 - banned.php 			     => utilizatorul este banat si nu s-a introdus niciun motiv in coloana `motiv_banat` din tabelul `utilizatori`;
+#3N626J40 - profil.php			     => 1) Utilizatorul nu exista in tabelul `admins`
+						2) In coloana `access` a utilizatorului respectiv este introdusa o valoare gresita (un grad inexistent)

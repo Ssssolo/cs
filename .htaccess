@@ -1,0 +1,18 @@
+Options -Indexes
+
+#######
+# Allow PHP/HTML pages to load without the filename extension
+######
+RewriteEngine On # Turns rewrite engine on (if allowed by server settings)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
+Options +FollowSymLinks
+RewriteRule jocuri-(.*) jocuri.php?link=$1
+RewriteRule admin-(.*) admin.php?link=$1
+RewriteRule ^tichet-(.*)$ tichet.php?id=$1
+
+ErrorDocument 404 http://localhost/neww/404
